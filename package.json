@@ -1,0 +1,21 @@
+{
+  "name": "nurfbets",
+  "version": "0.0.0",
+  "description": "DOPEASS RITO API NURF GAMBLIN' BANK",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/emilabraham/nurfbets.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/emilabraham/nurfbets/issues"
+  },
+  "dependencies": {
+    "nconf": "~0.7.1"
+  }
+}
