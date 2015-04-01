@@ -16,6 +16,7 @@
     "url": "https://github.com/emilabraham/nurfbets/issues"
   },
   "dependencies": {
-    "nconf": "~0.7.1"
+    "nconf": "~0.7.1",
+    "request": "^2.54.0"
   }
 }
