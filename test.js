@@ -17,6 +17,10 @@ function callback (error, response, body) {
   console.log(parsed);
   var elapsedTime = Math.floor(parsed.matchDuration/60);
   console.log('The game lasted for ' + elapsedTime + ' minutes');
-}
+  for (var i = 0; i < parsed.participants.length; i++) {
+    var lv = parsed.participants[i].stats.champLevel;
+    console.log('Champion Level is: ' + lv);
+  }
+};
 
 request.get(options, callback);
