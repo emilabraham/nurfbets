@@ -12,20 +12,32 @@ function currentTime() {
   return finalTime
 }
 
+var gameid;
+
+//Callback will print what happens when run an API call with matchid
+function getMatchcb (error, response, body) {
+  if (error) {
+    return console.error('Got an error when calling dankass API', error);
+  }
+
+  var parsed = JSON.parse(body);
+  console.log("This is the Match shit");
+  console.log(parsed.queueType);
+  console.log(parsed.participantIdentities[0]);
+  console.log(parsed.platformId);
+};
+
+//Retrieve the gameid using URFAPI
 function callback (error, response, body) {
   if (error) {
     return console.error('Got an error when calling dankass API', error);
   }
 
   var parsed = JSON.parse(body);
-  //var gameid = parsed.[
-  var gameid = parsed[parsed.length-1];
-  /*var elapsedTime = Math.floor(parsed.matchDuration/60);
-    console.log('The game lasted for ' + elapsedTime + ' minutes');
-    for (var i = 0; i < parsed.participants.length; i++) {
-    var lv = parsed.participants[i].stats.champLevel;
-    console.log('Champion Level is: ' + lv);
-    }*/
+  gameid = parsed[parsed.length-1];
+  console.log(gameid);
+
+  request.get(options.getMatch(gameid), getMatchcb);
 };
 
 request.get(options.api_challenge(currentTime()), callback);

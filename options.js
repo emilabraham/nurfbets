@@ -15,9 +15,21 @@ var Options = {
 
   getMatch: function getMatch (matchId) {
     return {
-      url: 'https://na.api.pvp.net/api/lol/na/v2.2/match',
+      url: 'https://na.api.pvp.net/api/lol/na/v2.2/match/'+matchId,
       qs: {
-        match
+        api_key: configs.apikey
+      }
+    }
+  },
+
+  currentMatch: function currentMatch (summonerId) {
+    return {
+      url: 'https://na.api.pvp.net//observer-mode/rest/consumer/getSpectatorGameInfo/{platformId}/{summonerId}',
+      qs: {
+        api_key: configs.apikey,
+      }
+    }
+  }
 };
 
 module.exports = Options;
