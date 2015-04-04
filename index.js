@@ -18,7 +18,8 @@ function callback (error, response, body) {
   }
 
   var parsed = JSON.parse(body);
-  console.log(parsed);
+  //var gameid = parsed.[
+  var gameid = parsed[parsed.length-1];
   /*var elapsedTime = Math.floor(parsed.matchDuration/60);
     console.log('The game lasted for ' + elapsedTime + ' minutes');
     for (var i = 0; i < parsed.participants.length; i++) {
