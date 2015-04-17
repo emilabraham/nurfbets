@@ -21,10 +21,12 @@ function getMatchcb (error, response, body) {
   }
 
   var parsed = JSON.parse(body);
-  console.log("This is the Match shit");
-  console.log(parsed.queueType);
-  console.log(parsed.participantIdentities[0]);
-  console.log(parsed.platformId);
+  participants = parsed.participants;
+  console.log('Game time: ' + parsed.matchDuration);
+  for (var i = 0; i < participants.length; i++) {
+    var level = participants[i].stats.champLevel;
+    console.log('champ level: ' + level);
+  }
 };
 
 //Retrieve the gameid using URFAPI
@@ -35,7 +37,7 @@ function callback (error, response, body) {
 
   var parsed = JSON.parse(body);
   gameid = parsed[parsed.length-1];
-  console.log(gameid);
+  console.log('Gameid: ' + gameid);
 
   request.get(options.getMatch(gameid), getMatchcb);
 };
